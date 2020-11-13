@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+           <variable
+               name="user"
+               type="com.example.datinghaui.model.User" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:cardElevation="@dimen/margin_10dp_"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/margin_5dp_">
+
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@color/colorWhite"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:src="@drawable/girl1"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="1:1.2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:id="@+id/llName"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:textSize="@dimen/txt_size_content"
+                    android:padding="@dimen/margin_10dp_"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/colorBlack"
+                    android:text="Amelia John son"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/txt_size_content"
+                    android:padding="@dimen/margin_10dp_"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/colorBlack"
+                    android:text="23t"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAbout"
+                android:textSize="@dimen/txt_size_content_small"
+                android:padding="@dimen/margin_10dp_"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textColor="@color/colorGrey"
+                android:text="A man falls in love through his eyes, a woman through her ears.If I die or go somewhere far, I’ll write your name on every star so people looking up can see just how much you meant to me"
+                app:layout_constraintTop_toBottomOf="@id/llName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:textSize="@dimen/txt_size_content_small"
+                android:padding="@dimen/margin_10dp_"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textColor="@color/colorGrey"
+                android:text="Minh khai - Từ liêm"
+                app:layout_constraintTop_toBottomOf="@id/tvAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

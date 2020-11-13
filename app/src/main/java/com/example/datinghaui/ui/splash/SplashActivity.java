@@ -7,6 +7,8 @@ import com.example.datinghaui.R;
 import com.example.datinghaui.base.BaseActivity;
 import com.example.datinghaui.databinding.ActivitySplashBinding;
 import com.example.datinghaui.ui.LoginActivity;
+import com.example.datinghaui.ui.resetpass.ResetPassActivity;
+import com.example.datinghaui.ui.resgister.RegisterActivity;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashViewModel> {
     @Override
@@ -33,6 +35,12 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
                 startActivity(intent);
             }
         });
-
+       binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
+               startActivity(intent);
+           }
+       });
     }
 }

@@ -1,10 +1,13 @@
 package com.example.datinghaui.ui.resetpass;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.example.datinghaui.R;
 import com.example.datinghaui.base.BaseActivity;
 import com.example.datinghaui.databinding.ActivityResetpassBinding;
+import com.example.datinghaui.ui.LoginActivity;
+import com.example.datinghaui.ui.resgister.RegisterActivity;
 
 public class ResetPassActivity extends BaseActivity<ActivityResetpassBinding,ResetPassViewModel> {
     @Override
@@ -39,7 +42,8 @@ public class ResetPassActivity extends BaseActivity<ActivityResetpassBinding,Res
        binding.tvCreateAcc.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               showToast("Create acc click!");
+               Intent intent = new Intent(ResetPassActivity.this, RegisterActivity.class);
+               startActivity(intent);
            }
        });
     }
