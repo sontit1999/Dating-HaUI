@@ -2,6 +2,8 @@ package com.example.datinghaui.fragment;
 
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
     int pos = -5;
+    Animation anim;
     @Override
     public Class<HomeViewModel> getViewmodel() {
         return HomeViewModel.class;
@@ -38,6 +41,7 @@ public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
 
     @Override
     public void ViewCreated() {
+        loadAnimation();
         setupRecyclerviewCard();
         viewmodel.getArrUser().observe(this, new Observer<ArrayList<User>>() {
             @Override
@@ -47,6 +51,14 @@ public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
         });
     }
 
+    private void loadAnimation() {
+        anim = AnimationUtils.loadAnimation(getContext(), R.anim.animation_tym);
+    }
+
+    public void startAnimation(){
+        // start the animation
+        binding.ivHeart.startAnimation(anim);
+    }
     private void setupRecyclerviewCard() {
                 CardStackLayoutManager layoutManager =  new CardStackLayoutManager(getContext(), new CardStackListener() {
                     @Override
@@ -60,6 +72,7 @@ public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
                                 Toast.makeText(getActivity(),  " DisLike " + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
                             }
                             if(direction == Direction.Right){
+                                startAnimation();
                                 Toast.makeText(getActivity(),  " Like" + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
                             }
                         }

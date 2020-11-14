@@ -23,6 +23,7 @@
     <dimen name="heighAvatar">100dp</dimen>
     <dimen name="txt_size_content">16sp</dimen>
     <dimen name="txt_size_content_small">13sp</dimen>
+    <dimen name="txt_size_content_smalls">10sp</dimen>
     <dimen name="txt_size_title">20sp</dimen>
     <dimen name="txt_size_title_big">25sp</dimen>
     <dimen name="txt_size_title_big_big">30sp</dimen>

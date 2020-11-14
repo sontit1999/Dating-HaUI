@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="user"
+            type="com.example.datinghaui.model.User" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        app:cardElevation="@dimen/margin_5dp_"
+        app:cardCornerRadius="@dimen/margin_10dp_">
+
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@color/colorWhite"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_10dp_"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivAvatar"
+                android:src="@drawable/girl1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="50dp"
+                android:layout_height="0dp" />
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:textSize="@dimen/txt_size_content"
+                    android:textColor="@color/colorBlack"
+                    android:text="Amelia John son"
+                    android:layout_margin="@dimen/margin_10dp_"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toRightOf="@id/ivAvatar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvAbout"
+                android:textSize="@dimen/txt_size_content_smalls"
+                android:layout_margin="@dimen/margin_10dp_"
+                android:maxLines="1"
+                app:layout_constraintTop_toBottomOf="@id/tvUserName"
+                app:layout_constraintLeft_toRightOf="@id/ivAvatar"
+                app:layout_constraintRight_toLeftOf="@id/tvTime"
+                android:textColor="@color/colorGrey"
+                android:text="A man falls in love through his eyes, a woman through her ears.If I die or go somewhere far, I’ll write your name on every star so people looking up can see just how much you meant to me"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:textSize="@dimen/txt_size_content_smalls"
+                android:padding="@dimen/margin_10dp_"
+
+                app:layout_constraintRight_toRightOf="parent"
+                android:textColor="@color/colorGrey"
+                android:text="7 june ,2018"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
