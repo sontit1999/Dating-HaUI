@@ -4,20 +4,20 @@ import com.example.datinghaui.BR;
 import com.example.datinghaui.R;
 import com.example.datinghaui.base.BaseAdapter;
 import com.example.datinghaui.base.CBAdapter;
-import com.example.datinghaui.callback.ChatCallback;
-import com.example.datinghaui.databinding.ItemChatBinding;
+import com.example.datinghaui.callback.FanCallBack;
+import com.example.datinghaui.databinding.ItemFanBinding;
 import com.example.datinghaui.model.User;
 
-public class ChatAdapter extends BaseAdapter<User, ItemChatBinding> {
-    ChatCallback callback;
+public class FanAdapter extends BaseAdapter<User, ItemFanBinding> {
+    FanCallBack callBack;
 
-    public void setCallback(ChatCallback callback) {
-        this.callback = callback;
+    public void setCallBack(FanCallBack callBack) {
+        this.callBack = callBack;
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.item_chat;
+        return R.layout.item_fan;
     }
 
     @Override
@@ -32,6 +32,6 @@ public class ChatAdapter extends BaseAdapter<User, ItemChatBinding> {
 
     @Override
     public CBAdapter getOnclick() {
-        return callback;
+        return callBack;
     }
 }

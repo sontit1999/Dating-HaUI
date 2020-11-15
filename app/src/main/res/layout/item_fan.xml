@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="user"
+            type="com.example.datinghaui.model.User" />
+        <variable
+            name="callback"
+            type="com.example.datinghaui.callback.FanCallBack" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardUseCompatPadding="true"
+        android:onClick="@{()->callback.onClickItem(user)}"
+        app:cardElevation="@dimen/margin_5dp_"
+        app:cardCornerRadius="@dimen/margin_10dp_">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:src="@drawable/girl1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="1:1.5"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+            <RelativeLayout
+                android:id="@+id/rlAvatar"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+                android:padding="@dimen/margin_5dp_"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_item_fan"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:fontFamily="@font/aladin"
+                    android:textSize="@dimen/txt_size_content_small"
+                    android:textColor="@color/colorWhite"
+                    android:text="Amelia John son"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:gravity="start"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_toLeftOf="@id/tvAge"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tvAddres"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/aladin"
+                    android:textColor="@color/colorWhite"
+                    android:text="Minh khai - Từ liêm"
+                    android:layout_marginTop="@dimen/margin_10dp_"
+                    android:padding="@dimen/margin_5dp_"
+                    android:gravity="start"
+                    android:background="@drawable/bg_address"
+                    android:layout_alignParentLeft="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_below="@id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:textSize="10sp"
+                    android:padding="@dimen/margin_10dp_"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/colorWhite"
+                    android:text="23"
+                    android:background="@drawable/bg_age"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rlAvatar">
+
+                <ImageButton
+                    android:id="@+id/btnDislike"
+                    android:layout_width="40dp"
+                    android:onClick="@{()->callback.onDislikeItem(user)}"
+                    android:layout_height="@dimen/margin_40dp_"
+                    android:background="@drawable/bg_btn_heart"
+                    android:padding="@dimen/margin_10dp_"
+                    android:src="@drawable/ic_baseline_highlight_off_24"
+                    android:tint="@color/colorGrey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnLike"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/btnLike"
+                    android:layout_width="40dp"
+                    android:onClick="@{()->callback.onlikeItem(user)}"
+                    app:layout_constraintLeft_toRightOf="@id/btnDislike"
+                    android:layout_height="@dimen/margin_40dp_"
+                    android:background="@drawable/bg_btn_heart"
+                    android:padding="@dimen/margin_10dp_"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_baseline_favorite_24"
+                    android:tint="@color/colorMain"
+                    app:layout_constraintRight_toRightOf="parent" />"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

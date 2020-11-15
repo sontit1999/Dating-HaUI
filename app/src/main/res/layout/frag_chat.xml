@@ -33,5 +33,17 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/rvChat"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:indicatorColor="@color/colorMain"
+            app:layout_constraintLeft_toLeftOf="@id/rvChat"
+            app:layout_constraintRight_toRightOf="@id/rvChat"
+            app:layout_constraintBottom_toBottomOf="@id/rvChat"
+            app:indicatorName="LineSpinFadeLoaderIndicator"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

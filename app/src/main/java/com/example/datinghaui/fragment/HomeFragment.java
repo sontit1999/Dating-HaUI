@@ -1,5 +1,6 @@
 package com.example.datinghaui.fragment;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -8,11 +9,13 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 
 import com.example.datinghaui.R;
 import com.example.datinghaui.adapter.CardAdapter;
 import com.example.datinghaui.base.BaseFragment;
+import com.example.datinghaui.callback.BottomNavigationListerner;
 import com.example.datinghaui.databinding.FragHomeBinding;
 import com.example.datinghaui.model.User;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
@@ -24,6 +27,13 @@ import java.util.ArrayList;
 public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
     int pos = -5;
     Animation anim;
+    BottomNavigationListerner bottomNavigationListerner;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        bottomNavigationListerner = (BottomNavigationListerner) context;
+    }
     @Override
     public Class<HomeViewModel> getViewmodel() {
         return HomeViewModel.class;
@@ -104,5 +114,11 @@ public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
 
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bottomNavigationListerner.onShowOrHiddenBottomNavigation(false);
     }
 }

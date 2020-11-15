@@ -118,6 +118,25 @@
                android:backgroundTint="@color/colorWhite"
                android:layout_height="wrap_content"/>
            <EditText
+               android:id="@+id/edtHobby"
+               android:paddingVertical="@dimen/margin_15dp_"
+               android:drawableLeft="@drawable/ic_baseline_favorite_24"
+               android:drawableTint="@color/colorWhite"
+               android:drawablePadding="@dimen/margin_10dp_"
+               android:maxLines="1"
+               android:singleLine="true"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintBottom_toTopOf="@id/edtPass"
+               app:layout_constraintRight_toRightOf="parent"
+               android:layout_width="match_parent"
+               android:hint="Hobby"
+               android:textSize="@dimen/txt_size_content"
+               android:textColor="@color/colorWhite"
+               android:textColorHint="@color/colorWhite"
+               android:layout_marginHorizontal="@dimen/margin_25dp_"
+               android:backgroundTint="@color/colorWhite"
+               android:layout_height="wrap_content"/>
+           <EditText
                android:id="@+id/edtAboutYou"
                android:paddingVertical="@dimen/margin_15dp_"
                android:drawableLeft="@drawable/ic_baseline_info_24"

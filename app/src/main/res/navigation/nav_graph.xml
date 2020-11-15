@@ -9,20 +9,41 @@
         android:id="@+id/homeFragment"
         tools:layout="@layout/frag_home"
         android:name="com.example.datinghaui.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         tools:layout="@layout/frag_chat"
         android:name="com.example.datinghaui.fragment.chat.ChatFragment"
-        android:label="ChatFragment" />
+        android:label="ChatFragment" >
+        <action
+            android:id="@+id/action_chatFragment_to_detealChatFragment"
+            app:destination="@id/detealChatFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fanFragment"
         tools:layout="@layout/frag_fan"
         android:name="com.example.datinghaui.fragment.fan.FanFragment"
-        android:label="FanFragment" />
+        android:label="FanFragment" >
+        <action
+            android:id="@+id/action_fanFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         tools:layout="@layout/frag_profile"
         android:name="com.example.datinghaui.fragment.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/detealChatFragment"
+        tools:layout="@layout/frag_detailchat"
+        android:name="com.example.datinghaui.fragment.detailchat.DetealChatFragment"
+        android:label="DetealChatFragment" >
+        <action
+            android:id="@+id/action_detealChatFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

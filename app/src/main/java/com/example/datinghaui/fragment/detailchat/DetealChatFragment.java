@@ -1,4 +1,4 @@
-package com.example.datinghaui.fragment.profile;
+package com.example.datinghaui.fragment.detailchat;
 
 import android.content.Context;
 import android.view.View;
@@ -8,9 +8,9 @@ import androidx.annotation.NonNull;
 import com.example.datinghaui.R;
 import com.example.datinghaui.base.BaseFragment;
 import com.example.datinghaui.callback.BottomNavigationListerner;
-import com.example.datinghaui.databinding.FragProfileBinding;
+import com.example.datinghaui.databinding.FragDetailchatBinding;
 
-public class ProfileFragment extends BaseFragment<FragProfileBinding,ProfileViewModel> {
+public class DetealChatFragment extends BaseFragment<FragDetailchatBinding,DetailChatViewModel> {
     BottomNavigationListerner bottomNavigationListerner;
 
     @Override
@@ -18,24 +18,25 @@ public class ProfileFragment extends BaseFragment<FragProfileBinding,ProfileView
         super.onAttach(context);
         bottomNavigationListerner = (BottomNavigationListerner) context;
     }
+
     @Override
-    public Class<ProfileViewModel> getViewmodel() {
-        return ProfileViewModel.class;
+    public Class<DetailChatViewModel> getViewmodel() {
+        return DetailChatViewModel.class;
     }
 
     @Override
     public int getLayoutID() {
-        return R.layout.frag_profile;
+        return R.layout.frag_detailchat;
     }
 
     @Override
     public void setBindingViewmodel() {
-      binding.setViewmodel(viewmodel);
+         binding.setViewmodel(viewmodel);
     }
 
     @Override
     public void ViewCreated() {
-           event();
+            event();
     }
 
     private void event() {
@@ -45,10 +46,10 @@ public class ProfileFragment extends BaseFragment<FragProfileBinding,ProfileView
                getControler().popBackStack();
            }
        });
-       binding.ivChooseImage.setOnClickListener(new View.OnClickListener() {
+       binding.ivAvatar.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
+               getControler().navigate(R.id.action_detealChatFragment_to_profileFragment);
            }
        });
     }
@@ -56,6 +57,6 @@ public class ProfileFragment extends BaseFragment<FragProfileBinding,ProfileView
     @Override
     public void onResume() {
         super.onResume();
-        bottomNavigationListerner.onShowOrHiddenBottomNavigation(false);
+        bottomNavigationListerner.onShowOrHiddenBottomNavigation(true);
     }
 }

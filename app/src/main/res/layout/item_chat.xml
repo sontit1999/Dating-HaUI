@@ -6,11 +6,15 @@
         <variable
             name="user"
             type="com.example.datinghaui.model.User" />
+        <variable
+            name="callback"
+            type="com.example.datinghaui.callback.ChatCallback" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_height="wrap_content"
         app:cardUseCompatPadding="true"
+        android:onClick="@{()->callback.onClickItem(user)}"
         android:layout_width="match_parent"
         app:cardElevation="@dimen/margin_5dp_"
         app:cardCornerRadius="@dimen/margin_10dp_">

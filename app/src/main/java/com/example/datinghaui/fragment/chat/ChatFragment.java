@@ -3,19 +3,30 @@ package com.example.datinghaui.fragment.chat;
 import android.content.Context;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.datinghaui.R;
 import com.example.datinghaui.base.BaseFragment;
+import com.example.datinghaui.callback.BottomNavigationListerner;
+import com.example.datinghaui.callback.ChatCallback;
 import com.example.datinghaui.databinding.FragChatBinding;
 import com.example.datinghaui.model.User;
 
 import java.util.ArrayList;
 
 public class ChatFragment extends BaseFragment<FragChatBinding,ChatViewModel> {
+    BottomNavigationListerner bottomNavigationListerner;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        bottomNavigationListerner = (BottomNavigationListerner) context;
+    }
     @Override
     public Class<ChatViewModel> getViewmodel() {
         return ChatViewModel.class;
@@ -38,7 +49,14 @@ public class ChatFragment extends BaseFragment<FragChatBinding,ChatViewModel> {
              @Override
              public void onChanged(ArrayList<User> users) {
                  viewmodel.chatAdapter.setList(users);
+                 stopAnim();
                  runLayoutAnimation(binding.rvChat);
+                 viewmodel.chatAdapter.setCallback(new ChatCallback() {
+                     @Override
+                     public void onClickItem(User user) {
+                         getControler().navigate(R.id.action_chatFragment_to_detealChatFragment);
+                     }
+                 });
              }
          });
     }
@@ -54,5 +72,19 @@ public class ChatFragment extends BaseFragment<FragChatBinding,ChatViewModel> {
         recyclerView.setLayoutAnimation(controller);
         recyclerView.getAdapter().notifyDataSetChanged();
         recyclerView.scheduleLayoutAnimation();
+    }
+    void startAnim(){
+        binding.avi.smoothToShow();
+        // or avi.smoothToShow();
+    }
+
+    void stopAnim(){
+        binding.avi.smoothToHide();
+        // or avi.smoothToHide();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        bottomNavigationListerner.onShowOrHiddenBottomNavigation(false);
     }
 }
