@@ -10,6 +10,9 @@ import android.view.View;
 import com.example.datinghaui.base.BaseActivity;
 import com.example.datinghaui.callback.BottomNavigationListerner;
 import com.example.datinghaui.databinding.ActivityMainBinding;
+import com.example.datinghaui.utils.Constant;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewmodel> implements BottomNavigationListerner {
 
@@ -30,6 +33,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewmodel
     public void setBindingViewmodel() {
            binding.setViewmodel(viewmodel);
             setUpNavigation();
+
     }
 
 

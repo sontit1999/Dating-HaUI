@@ -7,6 +7,25 @@ public class User {
     private String address;
     private String about;
     private String age;
+    private String favorite;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    private String sex;
+
+    public String getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(String favorite) {
+        this.favorite = favorite;
+    }
 
     public User() {
     }
@@ -18,6 +37,17 @@ public class User {
         this.address = address;
         this.about = about;
         this.age = age;
+    }
+
+    public User(String phoneNumber, String passWord, String userName, String address, String about, String age, String favorite,String sex) {
+        this.phoneNumber = phoneNumber;
+        this.passWord = passWord;
+        this.userName = userName;
+        this.address = address;
+        this.about = about;
+        this.age = age;
+        this.favorite = favorite;
+        this.sex = sex;
     }
 
     public String getPhoneNumber() {

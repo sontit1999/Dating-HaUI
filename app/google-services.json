@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "784095355566",
+    "firebase_url": "https://datinghaui-3a716.firebaseio.com",
+    "project_id": "datinghaui-3a716",
+    "storage_bucket": "datinghaui-3a716.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784095355566:android:756adb7182244ecd5f033f",
+        "android_client_info": {
+          "package_name": "com.example.datinghaui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784095355566-83t7glhleu185r34i6dmslrdrhdmf9rb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3Wx1zjjQlXguRdO3-T6w6QTu3UmE_gSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784095355566-83t7glhleu185r34i6dmslrdrhdmf9rb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
