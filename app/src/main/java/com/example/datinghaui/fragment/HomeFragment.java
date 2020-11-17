@@ -94,6 +94,7 @@ public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
                             if(direction == Direction.Right){
                                 startAnimation();
                                 Toast.makeText(getActivity(),  " Like" + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
+                                viewmodel.addRequest(viewmodel.cardAdapter.getList().get(pos));
                             }
                         }
                     }

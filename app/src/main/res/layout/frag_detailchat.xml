@@ -98,7 +98,7 @@
                 android:layout_toRightOf="@id/ivChooseImage"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@id/ivSend"
-                android:maxLines="1"
+                android:maxLines="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <ImageView

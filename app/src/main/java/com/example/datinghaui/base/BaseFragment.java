@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public abstract class BaseFragment<B extends ViewDataBinding,VM extends BaseViewmodel> extends Fragment {
     protected B binding;
     protected VM viewmodel;
@@ -43,5 +45,9 @@ public abstract class BaseFragment<B extends ViewDataBinding,VM extends BaseView
     }
     public NavController getControler(){
         return NavHostFragment.findNavController(this);
+    }
+    public void showSnackbar(View view, String message, int duration)
+    {
+        Snackbar.make(view, message, duration).show();
     }
 }

@@ -1,6 +1,8 @@
 package com.example.datinghaui.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String phoneNumber;
     private String passWord;
     private String userName;
@@ -9,6 +11,15 @@ public class User {
     private String age;
     private String favorite;
 
+    public String getLinkavatar() {
+        return linkavatar;
+    }
+
+    public void setLinkavatar(String linkavatar) {
+        this.linkavatar = linkavatar;
+    }
+
+    private String linkavatar;
     public String getSex() {
         return sex;
     }
@@ -28,6 +39,18 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(String phoneNumber, String passWord, String userName, String address, String about, String age, String favorite, String linkavatar, String sex) {
+        this.phoneNumber = phoneNumber;
+        this.passWord = passWord;
+        this.userName = userName;
+        this.address = address;
+        this.about = about;
+        this.age = age;
+        this.favorite = favorite;
+        this.linkavatar = linkavatar;
+        this.sex = sex;
     }
 
     public User(String phoneNumber, String passWord, String userName, String address, String about, String age) {

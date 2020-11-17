@@ -69,6 +69,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding,Regis
                String about = binding.edtAboutYou.getText().toString();
                String age = binding.edtAge.getText().toString();
                String favorite = binding.edtHobby.getText().toString();
+               String linkavatar = "https://i.pinimg.com/originals/1f/93/c1/1f93c19676ef2ad80f17ee5c228d8559.png";
                String sex = "";
                if(binding.rbNam.isChecked()){
                    sex = "nam";
@@ -79,7 +80,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding,Regis
                    showToast("Không được bỏ trống trường nào!!!");
                }else{
                    startAnim();
-                   User user = new User(phone,pass,username,address,about,age,favorite,sex);
+                   User user = new User(phone,pass,username,address,about,age,favorite,linkavatar,sex);
                    // kiểm tra đã có ai dùng sdt này chưa ?
                    UtilsDatabase.getInstant().getReference(Constant.noteUser).child(user.getPhoneNumber()).addListenerForSingleValueEvent(new ValueEventListener() {
                        @Override

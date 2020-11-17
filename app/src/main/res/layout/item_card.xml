@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
            <variable
@@ -25,6 +26,7 @@
             <ImageView
                 android:id="@+id/ivAvatar"
                 android:src="@drawable/girl1"
+                bind:imageUrl="@{user.linkavatar}"
                 android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="1:1.1"
                 app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +49,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:textColor="@color/colorBlack"
-                    android:text="Amelia John son"
+                    android:text="@{user.userName}"
                     android:textStyle="bold"
                     android:layout_toLeftOf="@id/tvAge"
                     android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
                     android:textSize="@dimen/txt_size_content"
                     android:padding="@dimen/margin_10dp_"
                     android:textColor="@color/colorWhite"
-                    android:text="23"
+                    android:text="@{user.age}"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="right"
                     android:background="@drawable/bg_age"
@@ -76,7 +78,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:textColor="@color/colorGrey"
                 android:layout_margin="@dimen/margin_5dp_"
-                android:text="A man falls in love through his eyes, a woman through her ears.If I die or go somewhere far, I’ll write your name on every star so people looking up can see just how much you meant to me"
+                android:text="@{user.about}"
                 app:layout_constraintTop_toBottomOf="@id/llName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -90,7 +92,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:textColor="@color/colorGrey"
-                android:text="Minh khai - Từ liêm"
+                android:text="@{user.address}"
                 app:layout_constraintTop_toBottomOf="@id/tvAbout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

@@ -1,6 +1,7 @@
 package com.example.datinghaui.fragment.chat;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
@@ -54,7 +55,9 @@ public class ChatFragment extends BaseFragment<FragChatBinding,ChatViewModel> {
                  viewmodel.chatAdapter.setCallback(new ChatCallback() {
                      @Override
                      public void onClickItem(User user) {
-                         getControler().navigate(R.id.action_chatFragment_to_detealChatFragment);
+                         Bundle bundle = new Bundle();
+                         bundle.putSerializable("user",user);
+                         getControler().navigate(R.id.action_chatFragment_to_detealChatFragment,bundle);
                      }
                  });
              }

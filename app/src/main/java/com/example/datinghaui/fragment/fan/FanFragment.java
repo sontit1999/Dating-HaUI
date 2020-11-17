@@ -17,6 +17,7 @@ import com.example.datinghaui.callback.BottomNavigationListerner;
 import com.example.datinghaui.callback.FanCallBack;
 import com.example.datinghaui.databinding.FragFanBinding;
 import com.example.datinghaui.model.User;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,9 @@ public class FanFragment extends BaseFragment<FragFanBinding,FanViewModel> {
             viewmodel.getArrUser().observe(this, new Observer<ArrayList<User>>() {
                 @Override
                 public void onChanged(ArrayList<User> users) {
+                    if(users.size()==0){
+                        showSnackbar(binding.tvFan,"Ds fan trống! Update profile hấp dẫn nhá mới nhiều fan :v ", Snackbar.LENGTH_LONG);
+                    }
                     viewmodel.fanAdapter.setList(users);
                     stopAnim();
                     runLayoutAnimation(binding.rvFan);
@@ -62,11 +66,14 @@ public class FanFragment extends BaseFragment<FragFanBinding,FanViewModel> {
                         @Override
                         public void onDislikeItem(User user) {
                             Toast.makeText(getActivity(), "Dislike " + user.getUserName(), Toast.LENGTH_SHORT).show();
+                            viewmodel.removeRequest(user);
                         }
 
                         @Override
                         public void onlikeItem(User user) {
                             Toast.makeText(getActivity(), "Like " + user.getUserName(), Toast.LENGTH_SHORT).show();
+                            viewmodel.AddMatch(user);
+                            viewmodel.removeRequest(user);
                         }
                     });
                 }
