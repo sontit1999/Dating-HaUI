@@ -57,5 +57,6 @@ public class FanViewModel extends BaseViewmodel {
     }
     public void AddMatch(User user){
         UtilsDatabase.getInstant().getReference(Constant.noteMatched).child(Constant.userCurent.getPhoneNumber()).child(user.getPhoneNumber()).setValue(user);
+        UtilsDatabase.getInstant().getReference(Constant.noteMatched).child(user.getPhoneNumber()).child(Constant.userCurent.getPhoneNumber()).setValue(Constant.userCurent);
     }
 }

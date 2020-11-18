@@ -34,4 +34,8 @@ public class ChatAdapter extends BaseAdapter<User, ItemChatBinding> {
     public CBAdapter getOnclick() {
         return callback;
     }
+    public void deleteItem(int pos){
+        datalist.remove(pos);
+        notifyItemRemoved(pos);
+    }
 }

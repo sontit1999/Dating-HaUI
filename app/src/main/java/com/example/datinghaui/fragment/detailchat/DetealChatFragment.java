@@ -58,8 +58,12 @@ public class DetealChatFragment extends BaseFragment<FragDetailchatBinding,Detai
             viewmodel.getArrMessage(user).observe(this, new Observer<List<Message>>() {
                 @Override
                 public void onChanged(List<Message> messages) {
-                    viewmodel.messageAdapter.setList(messages.subList(messages.size()-10, messages.size()));
-                    if(messages.size()>0){
+                    if(messages.size()>=20){
+                        viewmodel.messageAdapter.setList(messages.subList(messages.size()-10, messages.size()));
+                    }else{
+                        viewmodel.messageAdapter.setList(messages);
+                    }
+                    if(messages.size()>10){
                         binding.rvMess.smoothScrollToPosition(viewmodel.messageAdapter.getList().size()-1);
                     }
                 }

@@ -20,6 +20,7 @@ import com.example.datinghaui.callback.BottomNavigationListerner;
 import com.example.datinghaui.databinding.FragHomeBinding;
 import com.example.datinghaui.model.User;
 import com.example.datinghaui.ui.LoginActivity;
+import com.example.datinghaui.utils.Constant;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.Direction;
@@ -89,12 +90,15 @@ public class HomeFragment extends BaseFragment<FragHomeBinding,HomeViewModel> {
                     public void onCardSwiped(Direction direction) {
                         if(pos>=0){
                             if(direction == Direction.Left){
-                                Toast.makeText(getActivity(),  " DisLike " + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getActivity(),  " DisLike " + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
                             }
                             if(direction == Direction.Right){
                                 startAnimation();
-                                Toast.makeText(getActivity(),  " Like" + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
-                                viewmodel.addRequest(viewmodel.cardAdapter.getList().get(pos));
+                              //  Toast.makeText(getActivity(),  " Like" + viewmodel.cardAdapter.getList().get(pos).getUserName(), Toast.LENGTH_SHORT).show();
+                                if(!Constant.userCurent.getPhoneNumber().equals(viewmodel.cardAdapter.getList().get(pos).getPhoneNumber())){
+                                    viewmodel.addRequest(viewmodel.cardAdapter.getList().get(pos));
+                                }
+                                
                             }
                         }
                     }

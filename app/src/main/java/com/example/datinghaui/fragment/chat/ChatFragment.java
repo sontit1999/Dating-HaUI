@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ import com.example.datinghaui.R;
 import com.example.datinghaui.base.BaseFragment;
 import com.example.datinghaui.callback.BottomNavigationListerner;
 import com.example.datinghaui.callback.ChatCallback;
+import com.example.datinghaui.callback.SwipeToDeleteCallback;
 import com.example.datinghaui.databinding.FragChatBinding;
 import com.example.datinghaui.model.User;
 
@@ -68,6 +70,15 @@ public class ChatFragment extends BaseFragment<FragChatBinding,ChatViewModel> {
         binding.rvChat.setHasFixedSize(true);
         binding.rvChat.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
         binding.rvChat.setAdapter(viewmodel.chatAdapter);
+        SwipeToDeleteCallback callback = new SwipeToDeleteCallback(viewmodel.chatAdapter,getContext()){
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                viewmodel.removeMatched(viewmodel.chatAdapter.getList().get(viewHolder.getAdapterPosition()));
+                super.onSwiped(viewHolder, direction);
+
+            }
+        };
+        new ItemTouchHelper(callback).attachToRecyclerView(binding.rvChat);
     }
     private void runLayoutAnimation(RecyclerView recyclerView) {
         Context context = recyclerView.getContext();
